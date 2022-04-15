@@ -8,5 +8,6 @@ module Vendo
   autoload :Resource, "vendo/resource"
 
   # Vendo API calls
+  autoload :CartResource, "vendo/resources/cart"
   autoload :AccountResource, "vendo/resources/account"
 end

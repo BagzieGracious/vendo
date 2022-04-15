@@ -8,18 +8,19 @@ module Vendo
 
         # handles get request
         def get_request(url, params:{}, headers: {})
-            if client.token != ''
-                headers['Authorization'] = client.token
-                return handle_request client.connection('get', url, params, headers)
+            if client.token == ''
+                return {"status" => 401,"error" => "Unauthorized Access"}
             end
-            return {"status" => 401,"error" => "Unauthorized Access"}
+            headers['Authorization'] = client.token
+            handle_request client.connection('get', url, params, headers)
         end
 
         # handles post requests
         def post_request(url, params:{}, headers: {})
-            if client.token != ''
-                headers['Authorization'] = client.token
+            if client.token == '' && !url.match(/spree_oauth/)
+                return {"status" => 401,"error" => "Unauthorized Access"}
             end
+            headers['Authorization'] = client.token
             handle_request client.connection('post', url, params, headers)
         end
 
