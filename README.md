@@ -22,7 +22,36 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+To access the API, you'll need to create a `Vendo::Client`
+
+```ruby
+client = Vendo::Client.new()
+```
+
+The client then gives you access to each of the resources.
+
+## Resources
+you have to first authenticate before you access all resources
+```ruby
+account = client.account.authenticate('username', 'password')
+```
+
+you can easily access account info by
+```ruby
+info = client.account.info()
+info["data"]["attributes"]["email"] `----> this returns account email`
+```
+
+you can create a cart by
+```ruby
+client.cart.create()
+```
+
+you can retrieve a cart info by
+```ruby
+cart = client.cart.retrieve()
+cart["data"]["type"] `-----> example of retrieving cart info`
+```
 
 ## Development
 
