@@ -1,10 +1,14 @@
 module Vendo
     class Client
-        private attr_accessor :token
+        attr_accessor :token
         BASE_URL = "https://demo.getvendo.com/"
 
         def initialize
             @token = ''
+        end
+
+        def account
+            AccountResource.new(self)
         end
 
         def connection(method, uri, params, headers)

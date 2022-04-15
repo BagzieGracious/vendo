@@ -29,7 +29,7 @@ module Vendo
             when 400, 401, 403, 405, 500
                 message = {
                     'status' => response.code,
-                    'error' => response.body['error']
+                    'error' => response.body['error'],
                     'error_description' => response.body['error_description']
                 }    
             else

@@ -6,4 +6,7 @@ require_relative "vendo/version"
 module Vendo
   autoload :Client, "vendo/client"
   autoload :Resource, "vendo/resource"
+
+  # Vendo API calls
+  autoload :AccountResource, "vendo/resources/account"
 end
