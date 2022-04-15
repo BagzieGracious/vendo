@@ -1,8 +1,9 @@
-# frozen_string_literal: true
-
+require 'uri'
+require 'json'
+require 'net/http'
 require_relative "vendo/version"
 
 module Vendo
-  class Error < StandardError; end
-  # Your code goes here...
+  autoload :Client, "vendo/client"
+  autoload :Resource, "vendo/resource"
 end
